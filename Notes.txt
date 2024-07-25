@@ -1,0 +1,3 @@
+Stock need to be updated after checkout 
+Successfull order should be displayed in Admin's panel(Orders)
+BestSelling is sorted out from the stock(less num)
