@@ -1,6 +1,9 @@
 Certainly! Here's a sample `README.md` file for my eCommerce project. 
 ---
 
+https://ecombe-gz7j.onrender.com - Backend       
+https://ecomshallow.netlify.app/ -Frontend
+
 # eCommerce Project
 
 ## Description
