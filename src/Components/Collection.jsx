@@ -8,21 +8,23 @@ import Loading from "../Containers/Loading";
 
 function Collection() {
   // Access product data from context
-  const Productdata = useContext(ProductDataCxt);
-  
+  // const Productdata = useContext(ProductDataCxt);
+  const { data, setQuantity } = useContext(ProductDataCxt);
+  console.log(data)
+
   // Get location state from the router (used for category filtering)
   const location = useLocation();
   const { category } = location.state || {};
   
   // State to store the filtered product data
-  const [data, setData] = useState([]);
+  const [productdata, setproductData] = useState([]);
 
   // Effect to filter products based on the selected category
   useEffect(() => {
-    const filteredData = category ? Productdata.filter((item) => item.category === category) : Productdata;
+    const filteredData = category ? data.filter((item) => item.category === category) : data;
 
-    setData(filteredData);
-  }, [Productdata, category]); // Dependencies: Productdata and category
+    setproductData(filteredData);
+  }, [data, category]); // Dependencies: Productdata and category
 
   return (
     <>
@@ -33,7 +35,7 @@ function Collection() {
               <h1>Products</h1>
               <div className="container text-center m-auto">
                 <div className="row">
-                  <Card data={data} /> {/* Render cards with filtered product data */}
+                  <Card data={productdata} /> {/* Render cards with filtered product data */}
                 </div>
               </div>
             </section>

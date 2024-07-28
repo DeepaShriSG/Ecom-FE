@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function OrderHistory() {
   // Context for product data
   const Productdata = useContext(ProductDataCxt);
+  console.log(Productdata)
 
   // State for storing orders and product details
   const [orders, setOrders] = useState([]);
