@@ -10,7 +10,7 @@ import Navbar from "./Components/Navbar";
 import Loading from "./Containers/Loading";
 import Footer from "./Components/Footer";
 import BreadCrumbs from "./Containers/BreadCrumbs"
-
+import ProtectedRoute from "./common/ProtectedRoute"
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -57,21 +57,21 @@ function App() {
                   <Route path="/shopnow" element={<ShopNow />} />
                   <Route path="/collection" element={<Collection />} />
                   <Route path="/productInfo/:id" element={<ProductInfo />} />
-                  <Route path="/editProduct/:id" element={<EditProducts />} />
+                  <Route path="/editProduct/:id" element={<ProtectedRoute><EditProducts /></ProtectedRoute>} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
-                  <Route path="/resetpassword" element={<ResetPassword />} />
+                  <Route path="/resetpassword" element={<ProtectedRoute><ResetPassword /></ProtectedRoute>} />
                   <Route path="/adminLogin" element={<AdminLogin />} />
-                  <Route path="/addProducts" element={<AddProducts />} />
+                  <Route path="/addProducts" element={<ProtectedRoute><AddProducts /></ProtectedRoute>} />
                   <Route path="/tablecart" element={<TableCart />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/cartModal" element={<CartModal />} />
-                  <Route path="/payment" element={<Payment />} />
-                  <Route path="/orderHistory" element={<OrderHistory />} />
-                  <Route path="/success" element={<Success />} />
-                  <Route path="/cancel" element={<Cancel />} />
+                  <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+                  <Route path="/orderHistory" element={<ProtectedRoute><OrderHistory /></ProtectedRoute>} />
+                  <Route path="/success" element={<ProtectedRoute><Success /></ProtectedRoute>} />
+                  <Route path="/cancel" element={<ProtectedRoute><Cancel /></ProtectedRoute>} />
                   <Route path="/wishlist" element={<WishList />} />
-                  <Route path="/checkout" element={ <Elements stripe={stripePromise}> <Checkout /> </Elements>  } />
+                  <Route path="/checkout" element={ <ProtectedRoute><Elements stripe={stripePromise}> <Checkout /> </Elements></ProtectedRoute>  } />
                   <Route path="/sidebar" element={<Sidebar/>}/>
                   <Route path="/accountDetails" element={<AccountDetails/>}/>
                 

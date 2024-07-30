@@ -31,6 +31,8 @@ function AccountDetails() {
       setEmail(user.email || "");
       setPhonenumber(user.phonenumber || "");
       setAddress(user.address || "");
+    }else{
+      toast.error("Please Login")
     }
   }, [user]);
 
@@ -56,6 +58,7 @@ function AccountDetails() {
                   className="form-control" 
                   id="email" 
                   value={email} 
+                  placeholder="example@yahoo.com"
                   onChange={(e) => setEmail(e.target.value)} 
                   disabled // Disabled as user details are not editable in this view
                 />
@@ -69,6 +72,7 @@ function AccountDetails() {
                   className="form-control" 
                   id="phonenumber" 
                   value={phonenumber} 
+                  placeholder="78688xxxx"
                   onChange={(e) => setPhonenumber(e.target.value)} 
                   disabled // Disabled as user details are not editable in this view
                 />
@@ -82,6 +86,7 @@ function AccountDetails() {
                   id="address" 
                   rows="3" 
                   value={address} 
+                  placeholder="example address"
                   onChange={(e) => setAddress(e.target.value)} 
                   disabled // Disabled as user details are not editable in this view
                 ></textarea>
